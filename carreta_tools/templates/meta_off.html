@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <p>meta</p>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('meta_hc_page') }}">Hard Carry</a>
+                <a class="nav-item nav-link" href="{{ url_for('meta_mid_page') }}">Mid Laner</a>
+                <a class="nav-item nav-link active" href="{{ url_for('meta_off_page') }}">Offlane<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{{ url_for('meta_sup_page') }}">Support</a>
+                <a class="nav-item nav-link" href="{{ url_for('meta_hsup_page') }}">Hard Support</a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <p> Offlane </p>
+{% endblock content %}

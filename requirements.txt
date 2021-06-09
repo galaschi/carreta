@@ -1,0 +1,6 @@
+flask
+wtforms
+lxml
+requests
+urllib3
+matplotlib

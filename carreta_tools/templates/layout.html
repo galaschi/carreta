@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+       <title>Ferramentas da carreta</title>
+</head>
+<body>
+    <header class="header">
+      <nav class="navbar is-tablet is-spaced has-shadow hero is-dark">
+        <div class="container">
+          <a class="navbar-item" href="/">Carreta Tools</a>
+          <div class="navbar-menu" id="navMenuTransparentExample">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{{ url_for('meta_page') }}">Meta</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-end">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div role="main" class="hero-body">
+      <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="notification is-{{ category }}">
+                            <button class="delete"></button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+      </div>
+    </div>
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</body>
+
+</html>
