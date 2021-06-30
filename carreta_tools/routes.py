@@ -13,7 +13,7 @@ def meta_update():
     new_data = data.Data()
     new_data.data_to_json()
     del new_data
-    return redirect(url_for('meta.html'))
+    return redirect(url_for('meta_page'))
 
 
 @app.route("/meta")
