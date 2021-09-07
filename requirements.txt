@@ -5,3 +5,5 @@ requests
 urllib3
 matplotlib
 gunicorn
+flask-login
+flask_sqlalchemy

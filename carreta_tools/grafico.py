@@ -27,8 +27,8 @@ def generate_graph(hero, matches, winrate, pos):
         plt.xlabel('Winrate')
         plt.ylabel('Matches')
 
-        plt.xlim(min(winrate)-2, max(winrate)+2)
-        plt.ylim(0, max(matches)+1)
+        plt.xlim(min(winrate)-10, max(winrate)+10)
+        plt.ylim(0, max(matches)+10)
 
         plt.axhline(y=100, color='red', linestyle='-')
         plt.axvline(x=50, color='red', linestyle='-')

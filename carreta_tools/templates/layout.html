@@ -5,18 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        function loading(){
-            $("#loading").show();
-            $("#loading-text").show();
-            $("#content").hide();
-        }
-    </script>
 
-       <title>Ferramentas da carreta</title>
+    <title>Ferramentas da carreta</title>
 </head>
 <body>
     <header class="header">
@@ -29,6 +22,30 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-end">
+                 {% if current_user.is_authenticated %}
+                <div class="dropdown">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" style="background: transparent; border: 0px;">
+                            <img src="{{ current_user.steam_image }}"/>
+                            <span class="icon is-small">
+                                <i class="fa fa-angle-down" aria-hidden="true" style="color:white"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{{ url_for('perfil_page') }}">Perfil</a>
+                            <a class="dropdown-item" href="https://www.dotabuff.com/players/{{ current_user.steamId3 }}" target="_blank">Dotabuff</a>
+                            <a class="dropdown-item" href="https://www.opendota.com/players/{{ current_user.steamId3 }}" target="_blank">Opendota</a>
+                            <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                 {% else %}
+                    <a class="navbar-item" href="{{ url_for('login') }}">
+                        <img src="{{ url_for ('static', filename='images/login_steam.png') }}"/>
+                    </a>
+                 {% endif %}
             </div>
           </div>
         </div>
@@ -50,6 +67,7 @@
       </div>
     </div>
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="/static/js/script.js"></script>
 </body>
 
 </html>
